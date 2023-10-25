@@ -15,7 +15,7 @@ app.use(express.json());
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vtmwivk.mongodb.net/?retryWrites=true&w=majority`;
-//const uri = `mongodb+srv://coffee-server:g9XZSEwofS7ONrzj@cluster0.vtmwivk.mongodb.net/?retryWrites=true&w=majority`;
+
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -53,22 +53,7 @@ async function run() {
             res.send(result);
         })
 
-        // update an item 
-        // app.put('/coffee/:id', async(req, res) => {
-        //     const id = req.params.id;
-        //     const filter = {_id: new ObjectId(id)}
-        //     const options = { upsert: true };
-        //     const updatedDoc = req.body;
-        //     const Doc ={
-        //         $set: {
-        //             coffeeName: updateDoc.coffeeName, chefName: updateDoc.chefName,
-        //              supplier: updateDoc.supplier, taste: updateDoc.taste, 
-        //             category: updateDoc.category, details: updatedDoc.details, photo: updateDoc.photo
-        //         }
-        //     }
-        //     const result = await coffeeCollection.updateOne(filter, Doc, options);
-        //     res.send(result);
-        // })
+       
 
         app.put('/coffee/:id', async (req, res) => {
             const id = req.params.id;
